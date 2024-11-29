@@ -1,0 +1,24 @@
+#grandParent{
+    height: 300px;
+    width: 300px;
+    background-color: #301E67;
+    margin-top: 10px;
+
+}
+
+#parent{
+    height: 200px;
+    width: 200px;
+    background-color:#5B8FB9;
+}
+
+#child{
+    height: 100px;
+    width: 100px;
+    background-color: #B6EADA;
+}
+
+.google{
+    border:3px solid black;
+   
+}

@@ -1,0 +1,30 @@
+First was the jscript.
+
+After the emergence of ECMA , everybody used ECMA
+every browser has a javascript engine which converts .js into webpage.
+First we learn about the ECMA rules that every javascript engines follow
+
+data types:
+    string
+    number
+    boolean
+    object
+    undefined
+    array
+    null
+    
+
+increment and decrement:
+    a++
+    ++a
+    a--
+    --a
+
+mathematical operations:
+    a+b
+    a-b
+    a*b
+    a/b => gives decimal num only when it is not completely divisible
+    for a/b to get a non-decimal number , use function seal or something -- research
+    a%b
+

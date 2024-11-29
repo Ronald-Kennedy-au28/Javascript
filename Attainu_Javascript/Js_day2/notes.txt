@@ -1,0 +1,29 @@
+var a = 123;
+var b = "jack";
+
+console.log(a)  => 123
+console.log(!!a) => true  => converting it to a boolean
+console.log(boolean(a)) => true
+
+
+console.log(a && b) => prints b value => jack
+console.log(a || b) => prints a value => 123
+
+
+if , else if and else\
+
+ternary operator
+var a = 4;
+var b = "hone";
+
+var out = a ? "yes": "NO";
+var result = a ? "if" : b ? "else if" : "else';
+
+var object = {
+    naam: "rahul",
+    age:{
+        major: "yes"
+    }
+}
+console.log(object && object.age && object.age.major);
+

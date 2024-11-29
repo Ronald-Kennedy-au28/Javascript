@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,body{
+            height: 20000px;
+        }
+        .scroll{
+            background-color: bisque;
+            position: fixed;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="scroll">Scroll position : <span class="pos">4</span></div>
+    <script>
+        // 1. Throttling is a technique that limits the frequency of function execution,
+        //  allowing it to run at most once within a specified time interval.
+        // 2. Throttling is a technique used to limit the rate at which a function is called
+        // 3. Throttling guarantees that a function is invoked at most once within a predefined time interval,
+        //  regardless of how many times the event fires.
+        
+        // throttle is like a spring that throws balls, after a ball flies out
+        // it needs time to shrink back, it cannot throw any more untill it is ready
+        let count =1;
+        let lastScrollTime = 0;
+        const span = document.querySelector("span")
+        window.addEventListener("scroll",scrollOptimizer)
+
+        function scrollOptimizer(){
+            let currentTime = new Date().getTime()
+            if(currentTime - lastScrollTime > 500){
+                scroller();
+                lastScrollTime = currentTime;
+            }
+        }
+        function scroller(){
+            console.log("Throttling :", count++)
+            span.innerText = window.scrollY.toFixed(2) // toFixed(2) => to 2 decimal point
+        }
+        // difference bw debouncing and throttling  
+        // Debouncing postpones the execution until after a period of inactivity, while throttling
+        //  limits the execution to a fixed number of times over an interval.
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debouncing</title>
+</head>
+<body>
+    <label >
+        Search
+        <input type="text" >
+    </label>
+    <script>
+    // 1. Debouncing is a technique in programming that helps improve the performance of web applications by 
+    // controlling the frequency at which time-consuming tasks are triggered.
+    // 2. Debouncing prevents extra activations or slow functions from triggering too often.
+    // 3. to avoid unnecessary or repeated function calls that might be expensive or time-consuming
+        const input = document.querySelector("input")
+        let count = 1;
+        let networkCall = debounce(dummyCall,1000)
+
+        input.addEventListener("keydown",networkCall)
+        // expectation of debounce fxn : accepts fxn, delay and returns debounce fxn
+        function debounce(cb,delay){
+            let timer;
+            return function(){
+                clearTimeout(timer)
+                timer = setTimeout(cb,delay)
+            }
+        }
+        function dummyCall(){
+            console.log("Network call:",count++)
+        }
+        // when event is kept triggering the fxn wont execute
+        // it executes only when the triggering is stopped
+        // in debounce only the latest call or activity is executed and the rest are cleared
+    </script>
+</body>
+</html>

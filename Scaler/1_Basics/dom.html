@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h2></h2>
+    </div>
+    <h2></h2>
+    <p></p>
+
+    
+    <script>
+        // selector
+        let b = document.querySelector("div h2") // h2 inside div
+        // delete
+        element.remove()
+
+        // attribute
+        b.setAttribute("id","main")
+        let v = b.getAttribute("class")
+        b.classList = "ben"
+
+        // window eventlistener
+        window.addEventListener("click",(e)=>{
+            if(e.target.className == "double")
+                e.target.remove()
+        })
+
+        // insertbefore
+        // <ul>
+            // <li>0</li>
+            // <li>1</li>
+            // <li>2</li>
+            // <li>3</li>
+            // <li>4</li>
+            // <li>5</li>
+            // <li>7</li>
+            // <li>8</li>
+            // <li>9</li>
+        // </ul>
+        let liToAdd = document.createElement("li")
+        liToAdd.innerText = "6"
+
+        let ulTag = document.querySelector("ul")
+        let allLi = document.querySelectorAll("li")
+        let liBefore = allLi[6]
+
+        ulTag.insertBefore(liToAdd,liBefore)
+
+        // scrollIntoView()
+        // there paragraphs with ids, when pressed keys should move the view to that para
+        let section1 = document.querySelector("s1")
+        let section2 = document.querySelector("s2")
+        let section3 = document.querySelector("s3")
+        window.addEventListener("keydown", (e)=>{
+            let key = e.key;
+            if(key=="1"){
+                section1.scrollIntoView();
+            }
+            else if(key=="2"){
+                section2.scrollIntoView();
+            }
+            else if(key=="3"){
+                section3.scrollIntoView();
+            }
+            else if(key=="t"){
+                window.scrollTo(0,0);
+            }
+            else if(key=="b"){
+                window.scrollTo(0,document.body.scrollHeight);
+            }
+            
+        })
+    </script>
+</body>
+</html>

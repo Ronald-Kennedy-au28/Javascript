@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <buttton id="int">Introduce ALice</buttton>
+    <script>
+        const int = document.querySelector("#int")
+        const alice = {
+            name : "Alice",
+            age : 30,
+            introduce : function(){
+                console.log(this) // without bind it gives "<buttton id="int">Introduce ALice</buttton>"
+                console.log(`Hi I am ${this.name} and ${this.age} years old`)
+            }
+        }
+        int.addEventListener("click",alice.introduce) 
+        // in the call back func "alice.introduce" => this indicates the object
+        // the object here is int and name and age becomes unefined and    
+        // console.log(this) without bind it gives "<buttton id="int">Introduce ALice</buttton>"
+
+        // Problem
+        // the call back func should give the values of "alice"
+        const bindfxn = alice.introduce.bind(alice) // binding the function with alice object
+        int.addEventListener("click",bindfxn) 
+                    // or
+        int.addEventListener("click",alice.introduce.bind(alice))
+    </script>
+</body>
+</html>

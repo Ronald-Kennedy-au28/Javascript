@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="parent">
+        <div class="child"></div>
+        <div class="child"></div>
+        <div class="child"></div>
+        <div class="child"></div>
+        <div class="child"></div>
+    </div>
+    <script>
+        // Event delegation is a technique in JavaScript where a single event listener is attached to a parent element
+        // instead of attaching event listeners to multiple child elements.
+
+        // advantages: improves memory storage and performance
+
+        const children = document.querySelectorAll(".child")
+        children.forEach(child=>{               // multiple event listeners
+            child.addEventListener("click",()=>{
+                console.log("child clicked")
+            })
+        })
+
+        // Delegation
+        const parent = document.querySelector(".parent")
+        parent.addEventListener("click",(e)=>{     // single parent event listener
+            if(e.target.classList.contains("child")){
+                console.log("child clicked")
+            }
+        })
+    </script>
+</body>
+</html>

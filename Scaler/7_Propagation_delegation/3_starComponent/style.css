@@ -1,0 +1,13 @@
+
+.comp{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.star span{
+    font-size: 3rem;
+    cursor: pointer;
+}
+.gold{
+    color:gold
+}

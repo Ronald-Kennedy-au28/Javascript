@@ -1,0 +1,29 @@
+
+let parent = document.querySelector(".parent")
+parent.addEventListener("click",(e)=>{
+    console.log("parent") 
+})
+let child = document.querySelector(".child")
+parent.addEventListener("click",(e)=>{
+    console.log("grand") 
+})
+let grand = document.querySelector(".grand")
+parent.addEventListener("click",(e)=>{
+    console.log("child")
+})
+
+// when clicked on target "child" the output(console.log) by default would be => child,parent,gp
+
+Examples:
+
+1. if we provide the third parameter for gp:
+gp.addEventListener("click",event, true)  => output with target "child" => gp,child,parent
+
+2. if we provide the third parameter for gp,parent:
+gp.addEventListener("click",event, true) 
+parent.addEventListener("click",event, true)  
+output => gp,parent,child
+
+3. if we provide the third parameter for parent:
+parent.addEventListener("click",event, true)  
+output => parent,child,gp

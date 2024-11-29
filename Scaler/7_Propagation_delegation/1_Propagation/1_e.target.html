@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e.target and e.currentTarget</title>
+</head>
+                    <!-- order in which the events are triggered when clicked on child -->
+<body>                                        <!--      body   ^         -->                     
+    <div class="grand">                       <!--  	grand  ^            -->
+        <div class="parent">                  <!--      parent ^           -->
+            <div class="child"></div>         <!--      child  ^            -->
+        </div>
+    </div>
+    
+    <script>
+        let parent = document.querySelector(".parent")
+        parent.addEventListener("click",(e)=>{
+            console.log(e.target)  // this can be either child or parent depending upon the target 
+            console.log(e.currentTarget) // currentTarget is the element to which eventListener is assigned to
+            console.log("parent") 
+            e.stopPropagation()  // stops the grand event from entering the bubbling phase
+
+            // if we set grand to capturing phase(true) and add e.stopPropagation only to grand
+            // no matter where you click on the divs only grand is executed
+        })
+        let child = document.querySelector(".child")
+        grand.addEventListener("click",(e)=>{
+            console.log("grand")     
+        })
+        let grand = document.querySelector(".grand")
+        child.addEventListener("click",(e)=>{
+            console.log("child")
+            e.eventPhase // => tells the num in the phase => 1 ,2 ,3
+        })
+
+
+    </script>
+</body>
+</html>

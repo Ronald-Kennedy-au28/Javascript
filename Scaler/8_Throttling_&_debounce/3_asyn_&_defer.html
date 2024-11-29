@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="./3_asyn_&_defer.js"></script> -->  
+     <!-- script tag here will throw error bcoz in .js file 
+      body.append() wouldnt work as at this point there is no body, 
+      since, html parsing stops  -->
+</head>
+<body>
+    <div >first</div>
+    <div >second</div>
+    <script src="./3_asyn_&_defer.js"></script>
+    <!-- new div will load here but, that is not the expected output-->
+    <div >third</div>
+    <div >fourth</div>
+    <div >fifth</div>
+    <script>
+        // the normal script tag when placed between other tags, stops html parsing 
+        // when script tag is detected. the html parsing waits till the loading and execution of script file.
+        // Once the script external file is executed the html parsing is resumed. 
+        // if there are any references of html tags after the script tag in the external file
+        // will throw an error bcoz html parsing was incomplete at that time 
+    </script>
+    <script async src="./3_asyn_&_defer.js">
+        // here the html parsing is not stopped for loading the file but for execution.
+        // after the execution, html parsing will continue
+    </script>
+    <script defer src="./3_asyn_&_defer.js">
+        // here the script file loads pararllely with the html parsing and does pause or affect the
+        // html parsing. It executes only after html parsing is complete and guarantees the execution
+        // in the order that they appear in the code
+    </script>
+</body>
+</html>

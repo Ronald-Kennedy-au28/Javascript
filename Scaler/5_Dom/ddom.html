@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select name="" id="">
+        <option value="">None</option>
+        <option value="">ACTION</option>
+        <option value="">COMEDY</option>
+        <option value="">ROMANCE</option>
+        <option value="">HORROR</option>
+    </select>
+    
+    <div class="movies">
+        <h2 class="heading"></h2>
+        <p class="price" data-category="ACTION"></p>
+    </div>
+    <script>            
+        let selectedOption = document.querySelector("select");
+        let allDivTags = document.querySelectorAll("div");
+
+        selectedOption.addEventListener("change",(e)=>{
+            let selectedValue = e.target.value;
+
+            for(let i =0; i<allDivTags.length; i++){
+                if(selectedValue==="none"){
+                    allDivTags[i].style.display = "block";
+
+                }else{
+                    let pTag = allDivTags[i].querySelector("p");
+                    let category = pTag.getAttribute("data-category");
+                    if(selectedValue===category){
+                        allDivTags[i].style.display = "block";
+                    }else{
+                        allDivTags[i].style.display = "none";
+                    } 
+                }
+            }
+        })
+    </script>
+</body>
+</html>

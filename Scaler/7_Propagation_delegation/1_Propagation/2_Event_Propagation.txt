@@ -1,0 +1,25 @@
+How event propagates ==> Event Propagation
+
+Three phases:
+1. Capturing phase
+2. Target phase
+3. Bubbling phase
+
+                    html
+                     |
+    Capturing       body                Bubbling
+      phase          |                  phase
+                    grandParent
+                     |
+                    Parent
+                     |
+                    child
+
+                Target=>child
+                
+
+1. Capturing phase happens from html - child
+2. Target phase is where the event happens
+3. Bubbling phase is the event execution where it console.logs all the three (gp,Parent,child)
+// default all events are in Bubbling phase unless the third parameter is passed in the event(true/false)
+
